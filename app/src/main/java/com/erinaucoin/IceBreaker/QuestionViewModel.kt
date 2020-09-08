@@ -15,11 +15,13 @@ class QuestionViewModel(application: Application) : AndroidViewModel(application
     //   the UI when the data actually changes.
     // - Repository is completely separated from the UI through the ViewModel.
     val nextQuestion : LiveData<Question>
+    val allQuestion: LiveData<List<Question>>
 
     init{
-        val questionsDao = QuestionRoomDatabase.getDatabase(application).questionDao()
+        val questionsDao = QuestionRoomDatabase.getDatabase(application, viewModelScope).questionDao()
         repository = QuestionRepository(questionsDao)
         nextQuestion = repository.nextQuestion
+        allQuestion = repository.allQuestions
     }
 
     /**

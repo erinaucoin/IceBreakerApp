@@ -9,6 +9,7 @@ class QuestionRepository(private val questionDao: QuestionDao) {
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.
     val nextQuestion: LiveData<Question> = questionDao.getRandomQuestion()
+    val allQuestions: LiveData<List<Question>> = questionDao.getQuestionList()
 
     suspend fun insert(question: Question) {
         questionDao.insert(question)

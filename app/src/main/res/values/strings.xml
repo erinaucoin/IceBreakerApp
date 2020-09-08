@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">IceBreaker</string>
+    <string name="add_question">This button is used to add a new question</string>
+    <string name="hint_question">Question...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Question not saved because it is empty.</string>
 </resources>

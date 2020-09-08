@@ -11,6 +11,9 @@ interface QuestionDao {
     @Query("SELECT * FROM question_table ORDER BY RANDOM() LIMIT 1")
     fun getRandomQuestion(): LiveData<Question>
 
+    @Query("SELECT * from question_table ORDER BY ID")
+    fun getQuestionList(): LiveData<List<Question>>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(question: Question)
 
